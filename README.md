@@ -35,16 +35,84 @@ To install Python QuickFix Library or develop custom QuickFix Library we need to
 
 # Packaging custom Python QuickFix Library.
 Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are updated.
+    
     b. Install, update and upgrade necessary dependencies.
 
-        1. Update and upgrade pip and setuptools:
+        1. Update and upgrade pip, setuptools and wheel:
 
-            sudo python3.9 -m install pip --upgrade pip
-            python3.9 -m pip instll --upgrade setuptools
+            python3.9 -m pip install --upgrade pip setuptools wheel
 
+        2. Download quickfix repository:
 
+            wget https://files.pythonhosted.org/packages/62/b0/caf2dfae8779551f6e1d2bc78668d8f5a2303d21311fdd54345722b68cbc/quickfix-1.15.1.tar.gz
+            tar -xvf quickfix-1.15.1.tar.gz
+            cd quickfix-1.15.1
 
+        3. Create MANIFEST.in file to include all folders and files in quickfix-1.15.1 folder. To do that put the script below.
 
+            include *.cpp
+            include *.xml
+            include C++/*.cc
+            include C++/*.h
+            include C++/*.cpp
+            include C++/*.hpp
+            include C++/double-conversion/*.cc
+            include C++/double-conversion/*.c
+            include C++/double-conversion/*.h
+
+        4. Create LICENSE file and modify your Licensing information.
+
+            MIT License
+
+            Copyright (c) 2021 Your Name
+
+            Permission is hereby granted, free of charge, to any person obtaining a copy
+            of this software and associated documentation files (the "Software"), to deal
+            in the Software without restriction, including without limitation the rights
+            to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+            copies of the Software, and to permit persons to whom the Software is
+            furnished to do so, subject to the following conditions:
+
+            The above copyright notice and this permission notice shall be included in all
+            copies or substantial portions of the Software.
+
+            THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+            IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+            FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+            AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+            LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+            OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+            SOFTWARE.
+
+        5. Create pyproject.toml file and put the script below:
+
+            [build-system]
+            requires = [
+                "setuptools>=54",
+                "wheel"
+            ]
+            build-backend = "setuptools.build_meta"
+
+        6. Create setup.cfg file and put the script below:
+
+            [metadata]
+            name = quickfix
+            version = 0.0.1
+            author = Your Name
+            author_email = example@gmail.com
+            description = Market routing inbound fix messages.
+            long_description = file: README.md
+            long_description_content_type = text/markdown
+            url = https://github.com/mrzvuz/quickfix
+            classifiers =
+                Programming Language :: Python :: 3
+                License :: OSI Approved :: MIT License
+                Operating System :: OS Independent
+
+            [options]
+            packages = find:
+            python_requires = >=3.6
+            include_package_data = True
 
 
 
