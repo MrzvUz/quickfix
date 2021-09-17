@@ -1,6 +1,5 @@
-# Set up required environment to install Python QuickFix Library and develop your own custom QuickFix Python Library.
-
-I am going to be using Linux CentOS 7 for this demo.
+# Required environment set up:
+To install Python QuickFix Library or develop custom QuickFix Library we need to set up an environment and install required all dependencies. I will be using Linux CentOS 7 for this demo.
 
     a. Install Python.
     
@@ -34,6 +33,7 @@ I am going to be using Linux CentOS 7 for this demo.
             python3.9 -V
             pip3.9 -V
 
+# Packaging custom Python QuickFix Library.
 
 
 
