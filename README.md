@@ -114,6 +114,22 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
             python_requires = >=3.6
             include_package_data = True
 
+        7. Create __init__.py file which will pick up all .py files and will include in the package.
+
+            touch __init__.py
+
+# Packaging Python QuickFix Library.
+Once you have gone through all the steps above, now it is time to packaging our custom Python QuickFix Library.
+
+    c. Change your directory into quickfix-1.15.1 and run following commands:
+
+        1. To build our python library we should install build module:
+
+            pip3.9 install build
+        
+        2. Finally from root directory of quickfix-1.15.1 run:
+
+            python3.9 -m build
 
 
 
@@ -125,13 +141,6 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
 
 
 
-Depending on the user's need there are three solutions presented here.
 
-    1. Marked-up XML
-    2. List of fields (groups embedded).
-    3. JSON-like output.
 
-In the quickfix Python library, the FieldMap field and group key iterators are not exposed. So the approach is to first generate the XML and iterate over the tree. There is also no access to the getFieldType method of the DataDictionary, so the dictionary must be pre-processed to store the field types for conversion and handling of groups.
 
-RUN from fix2json-py-v2 folder:
-╰─ $./fix2json.py --spec spec/FIX44.xml
