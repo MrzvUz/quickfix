@@ -1,0 +1,13 @@
+include *.cpp
+include *.so
+
+include *.xml
+
+include C++/*.cc
+include C++/*.h
+include C++/*.cpp
+include C++/*.hpp
+
+include C++/double-conversion/*.cc
+include C++/double-conversion/*.c
+include C++/double-conversion/*.h
