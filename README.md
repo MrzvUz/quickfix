@@ -34,8 +34,13 @@ To install Python QuickFix Library or develop custom QuickFix Library we need to
             pip3.9 -V
 
 # Packaging custom Python QuickFix Library.
+Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are updated.
+    b. Install, update and upgrade necessary dependencies.
 
+        1. Update and upgrade pip and setuptools:
 
+            sudo python3.9 -m install pip --upgrade pip
+            python3.9 -m pip instll --upgrade setuptools
 
 
 
