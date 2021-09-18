@@ -9,7 +9,8 @@ To install Python QuickFix Library or develop custom QuickFix Library we need to
         
         2. Install below pre-requisites for Python and Python Quickfix library:
 
-            sudo yum -y install wget make gcc gcc-c++ glibc-devel openssl-devel bzip2-devel
+            sudo yum groupinstall "Development Tools" -y
+            sudo yum install -y gcc open-ssl-devel bzip2-devel libffi-devel wget make gcc gcc-c++ glibc-devel 
 
         3. Download Python 3.9.7 setup in /tmp location and unzip tgz file:
 
