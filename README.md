@@ -152,6 +152,8 @@ Once build is successful there will be created several files and folders and mos
         This will install Python QuickFix Library to your operating system but it will not build the package.
 
 # Summary
+In conclusion of our project:
+
 1. We have used Linux CentOS 7.
 2. Installed required dependencies to install latest python and package python quickfix library.
 3. We have downloaded quickfix-1.15.1.tar.gz file and unzipped it.
