@@ -9,8 +9,8 @@ To install Python QuickFix Library or develop custom QuickFix Library we need to
         
         2. Install below pre-requisites for Python and Python Quickfix library:
 
-            sudo yum groupinstall "Development Tools" -y
-            sudo yum install -y gcc open-ssl-devel bzip2-devel libffi-devel wget make gcc gcc-c++ glibc-devel 
+            sudo yum -y groupinstall "Development Tools"
+            sudo yum install -y gcc openssl-devel open-ssl-devel bzip2-devel libffi-devel wget make gcc gcc-c++ glibc-devel 
 
         3. Download Python 3.9.7 setup in /tmp location and unzip tgz file:
 
@@ -26,8 +26,8 @@ To install Python QuickFix Library or develop custom QuickFix Library we need to
 
         5. Set currently installed Python 3.9.7 as a default Linux Python version:
 
-            sudo ln -sfn /usr/local/bin/python3.9 /usr/bin/python3.9
-            sudo ln -sfn /usr/local/bin/pip3.9 /usr/bin/pip3.9
+            sudo ln -sfn /usr/local/bin/python3.9 /usr/bin/python3.9.7
+            sudo ln -sfn /usr/local/bin/pip3.9 /usr/bin/pip3.9.7
 
         6. Verify new Python 3.9.7 and PIP version:
 
@@ -39,17 +39,13 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
     
     b. Install, update and upgrade necessary dependencies.
 
-        1. Update and upgrade pip, setuptools and wheel:
-
-            python3.9 -m pip install --upgrade pip setuptools wheel
-
-        2. Download quickfix repository:
+        1. Download quickfix repository:
 
             wget https://files.pythonhosted.org/packages/62/b0/caf2dfae8779551f6e1d2bc78668d8f5a2303d21311fdd54345722b68cbc/quickfix-1.15.1.tar.gz
             tar -xvf quickfix-1.15.1.tar.gz
             cd quickfix-1.15.1
 
-        3. Create MANIFEST.in file to include all folders and files in quickfix-1.15.1 folder. To do that put the script below.
+        2. Create MANIFEST.in file to include all folders and files in quickfix-1.15.1 folder. To do that put the script below.
 
             include *.cpp
             include *.xml
@@ -61,7 +57,7 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
             include C++/double-conversion/*.c
             include C++/double-conversion/*.h
 
-        4. Create LICENSE file and modify your Licensing information.
+        3. Create LICENSE file and modify your Licensing information.
 
             MIT License
 
@@ -85,7 +81,7 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
             OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
             SOFTWARE.
 
-        5. Create pyproject.toml file and put the script below:
+        4. Create pyproject.toml file and put the script below:
 
             [build-system]
             requires = [
@@ -94,7 +90,7 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
             ]
             build-backend = "setuptools.build_meta"
 
-        6. Create setup.cfg file and put the script below:
+        5. Create setup.cfg file and put the script below:
 
             [metadata]
             name = quickfix
@@ -115,7 +111,7 @@ Make sure that before packaging any Python libraries your PIP and SETUPTOOLS are
             python_requires = >=3.6
             include_package_data = True
 
-        7. Create __init__.py file which will pick up all .py files and will include in the package.
+        6. Create __init__.py file which will pick up all .py files and will include in the package.
 
             touch __init__.py
 
@@ -124,14 +120,41 @@ Once you have gone through all the steps above, now it is time to packaging our 
 
     c. Change your directory into quickfix-1.15.1 and run following commands:
 
-        1. To build our python library we should install build module:
+        1. Update and upgrade pip, setuptools and wheel:
 
-            pip3.9 install build
+            python3.9.7 -m pip install --upgrade pip setuptools wheel
+
+        2. To build our python library we should install build module:
+
+            pip3.9.7 install build
         
-        2. Finally from root directory of quickfix-1.15.1 run:
+        3. Finally from root directory of quickfix-1.15.1 run:
 
-            python3.9 -m build
-            
+            python3.9.7 -m build
+
+# Successful build.
+Once build is successful there will be created several files and folders and most importantly dist directory.
+
+    d. Getting .whl file to install custom Python QuickFix Library on any Linux machine which has Python3.9 installed.
+
+        1. From root directory of quickfix-1-15-1 navigate to dist folder:
+
+            cd dist
+
+        2. You will find two files created, quickfix-1.15.1.tar.gz and quickfix-1.15.1-cp39-cp39-linux_x86_64.whl. To install quickfix library just run:
+
+            pip3.9.7 install quickfix-1.15.1-cp39-cp39-linux_x86_64.whl
+
+        3. Another option to install quickfix library is, once you have installed all dependecies above, inside the quickfix-1.15.1 folder just run:
+
+            sudo python3.9.7 setup.py install
+        
+        This will install Python QuickFix Library to your operating system but it will not build the package.
+
+# Summary
+In summary, we have used Linux CentOS 7, installed required dependencies to install latest python and package python quickfix library. We have downloaded quickfix-1.15.1.tar.gz file and unzipped it. Inside the unzipped quickfix folder we have created LICENSE, MANIFEST.in, setup.cfg, pyproject.toml and __init__.py files. Then we have successfully built our custom Python QuickFix Library which has created quickfix-1.15.1.tar.gz and quickfix-1.15.1-cp39-cp39-linux_x86_64.whl files. Now you can copy the quickfix-1.15.1-cp39-cp39-linux_x86_64.whl and you can easily install Python QuickFix Library in any Linux OS which has Python3.9.7 version installed.
+
+
 
 
 
