@@ -152,23 +152,11 @@ Once build is successful there will be created several files and folders and mos
         This will install Python QuickFix Library to your operating system but it will not build the package.
 
 # Summary
-1. we have used Linux CentOS 7.
-2. installed required dependencies to install latest python and package python quickfix library.
+1. We have used Linux CentOS 7.
+2. Installed required dependencies to install latest python and package python quickfix library.
 3. We have downloaded quickfix-1.15.1.tar.gz file and unzipped it.
 4. Inside the unzipped quickfix folder we have created LICENSE, MANIFEST.in, setup.cfg, pyproject.toml and __init__.py files.
-5. Then we have successfully built our custom Python QuickFix Library which has created quickfix-1.15.1.tar.gz and quickfix-1.15.1-cp39-cp39-linux_x86_64.whl files. 
+5. Then we have successfully built our custom Python QuickFix Library.
+6. Build has created quickfix-1.15.1.tar.gz and quickfix-1.15.1-cp39-cp39-linux_x86_64.whl files. 
 
 Now you can copy the quickfix-1.15.1-cp39-cp39-linux_x86_64.whl and you can easily install Python QuickFix Library in any Linux OS which has Python3.9.7 version installed.
-
-
-
-
-
-
-
-
-
-
-
-
-
