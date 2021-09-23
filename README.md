@@ -152,7 +152,7 @@ Once build is successful there will be created several files and folders and mos
         This will install Python QuickFix Library to your operating system but it will not build the package.
 
 # Summary
-In conclusion of our project:
+In conclusion:
 
 1. We used Linux CentOS 7.
 2. We installed required dependencies to install latest python3.9 and Python QuickFix Library.
